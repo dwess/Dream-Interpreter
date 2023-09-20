@@ -5,6 +5,10 @@ import os
 
 load_dotenv()
 
+apiKey = os.getenv('apiKey', "")
+if apiKey.isspace:
+   apiKey= st.secrets["apiKey"]
+
 openai.api_key= os.getenv('apiKey')
 dreamDescription = ""
 
