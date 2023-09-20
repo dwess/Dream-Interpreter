@@ -1,7 +1,8 @@
 import openai
 import streamlit as st
+import config
 
-openai.api_key="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"
+openai.api_key= config.apiKey
 dreamDescription = ""
 
 st.title("Your Free Dream Interpreter")
@@ -21,7 +22,7 @@ if st.button("Interpret my Dream!"):
     model="gpt-3.5-turbo",
     messages= [
         {"role": "system", "content" : "You are an archetypal dream interpreter. First give a breif summary of what the dreamer's subconscious is expressing to the dream. Then list the different archetypes of the dream."},
-        {"role": "user", "content" : "Please interpret the following archetypal dream: {dreamDescription}"}
+        {"role": "user", "content" : f"Please interpret the following archetypal dream: {dreamDescription}"}
         ],
     )
 
