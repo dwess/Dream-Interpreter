@@ -1,8 +1,11 @@
 import openai
 import streamlit as st
-import config
+from dotenv import load_dotenv
+import os
 
-openai.api_key= config.apiKey
+load_dotenv()
+
+openai.api_key= os.getenv('apiKey')
 dreamDescription = ""
 
 st.title("Your Free Dream Interpreter")
